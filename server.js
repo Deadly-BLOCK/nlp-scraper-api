@@ -27,6 +27,12 @@ async function autoScrollByCards(page, maxTime = 30000) {
   }, maxTime);
 }
 
+// health-check for Render
+app.get('/', (_req, res) => {
+  res.send('🆗 Scraper API is running');
+});
+
+
 app.post('/scrape', async (req, res) => {
   const { username, password, code } = req.body;
   if (!username || !password || !code) {
